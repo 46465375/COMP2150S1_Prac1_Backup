@@ -11,6 +11,8 @@ public class Mole : MonoBehaviour
 {
     public Color color;
     private SpriteRenderer sprite;
+    public float colorDelay;
+    private float timer;
 
     void Start()
     {
@@ -21,5 +23,15 @@ public class Mole : MonoBehaviour
     void OnMouseDown()
     {
         sprite.color = Color.red;
+        timer = colorDelay;
+    }
+
+    void Update()
+    {
+        timer = timer - Time.deltaTime;
+        if (timer<0)
+        {
+            sprite.color = color;
+        }
     }
 }

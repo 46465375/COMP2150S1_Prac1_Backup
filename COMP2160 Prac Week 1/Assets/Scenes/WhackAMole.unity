@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0.6, g: 0.45984834, b: 0.35686275, a: 1}
+  colorDelay: 2
 --- !u!212 &1994455312
 SpriteRenderer:
   m_ObjectHideFlags: 0
