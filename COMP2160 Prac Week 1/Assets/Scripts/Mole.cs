@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-    [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(CircleCollider2D))]
+    [RequireComponent(typeof(SpriteRenderer))] //Moles require a sprite renderer to show on the game screen
+    [RequireComponent(typeof(CircleCollider2D))] // Moles requrie a circlecolider in order to show interaction when clicked
 
 
 public class Mole : MonoBehaviour
 {
+    // initialisng feilds used for the moles
     public Color colorDownState;
     private Color colorUpState = Color.yellow;
     private Color colorMissedState = Color.red;
     private SpriteRenderer sprite;
+    public Scorer scorer;
     public float maxDownState = 5;
     public float minDownState = 1;
     private float timerUpState = 3;
@@ -34,6 +36,7 @@ public class Mole : MonoBehaviour
         {
             sprite.color = colorDownState;
             timer = timerDownState;
+            scorer.Clob +=1;
         }
     }
 
@@ -51,6 +54,7 @@ public class Mole : MonoBehaviour
             {
                 sprite.color = colorMissedState;
                 timer = timerMissedState;
+                scorer.Miss +=1;
             }
             else if (sprite.color == colorMissedState)
             {
